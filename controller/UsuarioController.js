@@ -18,37 +18,37 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // Rotas principais
-app.get('/main', async (req, res) => {
+app.get('/main-user', async (req, res) => {
   let Usuarios = await Usuario.findAll();
   Usuarios = Usuarios.map((Usuario) => Usuario.dataValues);
   
   res.render('index', { Usuarios });
 });
 
-app.get('/create', (req, res) => {
-  res.render('create');
+app.get('/create-user', (req, res) => {
+  res.render('create-user');
 });
 
-app.post('/create', async (req, res) => {
+app.post('/create-user', async (req, res) => {
   const { id, titulo, dtlanc, autor, genero, preco, adap_cinema } = req.body;
   await Usuario.create({  id, titulo, dtlanc, autor, genero, preco, adap_cinema });
   res.redirect('/');
 });
 
-app.get('/edit/:id', async (req, res) => {
+app.get('/edit-user/:id', async (req, res) => {
   let Usuario = await Usuario.findByPk(req.params.id);
   Usuario = Usuario.dataValues;
   
-  res.render('edit', { Usuario });
+  res.render('edit-user', { Usuario });
 });
 
-app.post('/edit/:id', async (req, res) => {
+app.post('/edit-user/:id', async (req, res) => {
   const { id, titulo, dtlanc, autor, genero, preco, adap_cinema } = req.body;
   await Usuario.update({id, titulo, dtlanc, autor, genero, preco, adap_cinema }, { where: { id: req.params.id } });
   res.redirect('/');
 });
 
-app.get('/delete/:id', async (req, res) => {
+app.get('/delete-user/:id', async (req, res) => {
   await Usuario.destroy({ where: { id: req.params.id } });
   res.redirect('/');
 });

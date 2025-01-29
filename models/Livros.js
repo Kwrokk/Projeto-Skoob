@@ -31,6 +31,10 @@ const Livros = sequelize.define('Livros', {
   adap_cinema:{
     type: DataTypes.BOOLEAN,
     allowNull: true
+  },
+  nota:{
+    type:DataTypes.INTEGER,
+    allowNull: true
   }
 });
 

@@ -2,7 +2,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const exphbs = require('express-handlebars');
 const sequelize = require('./database');
-const Livro = require('./models/Livro');
+const Livro = require('./models/Livros');
 const Usuario = require('./models/Usuario');
 
 
@@ -19,17 +19,19 @@ sequelize.sync({ force: false }).then(() => {
 });
 
 // Rotas principais
-app.get('/main', async (req, res) => {
-  let Livros = await Livro.findAll();
-  Livros = Livros.map((Livro) => Livro.dataValues);
+app.get('/', async (req, res) => {
+  //let Livros = await Livro.findAll();
+  //Livros = Livros.map((Livro) => Livro.dataValues);
   
-  res.render('index', { Livros });
+  res.render('index');
 });
 
 app.get('/create', (req, res) => {
   res.render('create');
 });
-
+app.get('/create', (req, res) => {
+  res.render('create');
+});
 app.post('/create', async (req, res) => {
   const { id, titulo, dtlanc, autor, genero, preco, adap_cinema } = req.body;
   await Livro.create({  id, titulo, dtlanc, autor, genero, preco, adap_cinema });
@@ -56,5 +58,5 @@ app.get('/delete/:id', async (req, res) => {
 
 // Iniciar o servidor
 app.listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  console.log(`Servidor local em: http://localhost:${PORT}`);
 });
