@@ -15,7 +15,7 @@ app.engine('handlebars', exphbs.engine());
 app.set('view engine', 'handlebars');
 
 sequelize.sync({ force: false }).then(() => {
-  console.log('Database synced!');
+  console.log('Database Conectado!');
 });
 
 // Rotas principais
