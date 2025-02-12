@@ -1,0 +1,23 @@
+<h1>Lista de Publicações</h1>
+<a href="/create-publication">Adicionar publicacao</a>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Código Autor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each publication}}
+    <tr>
+      <td>{{this.titulo}}</td>
+      <td>{{this.autor}}</td>
+      <td>
+        <a href="/edit-publication/{{this.id}}">Editar</a>
+        <a href="/delete-publication/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,0 +1,23 @@
+<h1>Lista de Usuários</h1>
+<a href="/user/create">Adicionar Usuários</a>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Email</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each Usuario}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.email}}</td>
+      <td>
+        <a href="/user/edit/{{this.id}}">Editar</a>
+        <a href="/user/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>

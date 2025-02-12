@@ -1,0 +1,23 @@
+<h1>Lista de Livros</h1>
+<a href="/create-book">Adicionar Livros</a>
+<table>
+  <thead>
+    <tr>
+      <th>Título</th>
+      <th>Autor</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each livro}}
+    <tr>
+      <td>{{this.título}}</td>
+      <td>{{this.autor}}</td>
+      <td>
+        <a href="/edit-book/{{this.id}}">Editar</a>
+        <a href="/delete-book/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
