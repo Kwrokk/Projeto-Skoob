@@ -1,0 +1,11 @@
+header{
+    background-color: rgb(163, 18, 163);
+    height: 30px;
+    width: 100px;
+    border-radius: 20px;
+};
+
+*
+{
+    background-color: black;
+}
