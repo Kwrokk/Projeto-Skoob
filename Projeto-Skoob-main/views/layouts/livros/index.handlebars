@@ -1,0 +1,23 @@
+<h1>Lista de Estudantes</h1>
+<a href="/create">Adicionar Estudante</a>
+<table>
+  <thead>
+    <tr>
+      <th>Nome</th>
+      <th>Idade</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each estudantes}}
+    <tr>
+      <td>{{this.nome}}</td>
+      <td>{{this.idade}}</td>
+      <td>
+        <a href="/edit/{{this.id}}">Editar</a>
+        <a href="/delete/{{this.id}}" onclick="return confirm('Tem certeza?')">Excluir</a>
+      </td>
+    </tr>
+    {{/each}}
+  </tbody>
+</table>
